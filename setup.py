@@ -4,6 +4,9 @@
 from setuptools import find_packages, setup
 from os.path import join, dirname
 
+from setuptools.config._validate_pyproject.formats import url
+
+from odoo.release import description, version, long_desc, author_email, author, classifiers
 
 exec(open(join(dirname(__file__), 'odoo', 'release.py'), 'rb').read())  # Load release variables
 lib_name = 'odoo'
@@ -13,8 +16,8 @@ setup(
     version=version,
     description=description,
     long_description=long_desc,
-    url=url,
     author=author,
+    url=url,
     author_email=author_email,
     classifiers=[c for c in classifiers.split('\n') if c],
     license=license,
